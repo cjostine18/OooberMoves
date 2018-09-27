@@ -6,18 +6,55 @@
 //  Copyright © 2018 Casey Jostine. All rights reserved.
 //
 
+
+
 import UIKit
+import CoreData
+import FBSDKCoreKit
+import GoogleSignIn
+
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
+    
+    
+    //  AppDelegate.m
+
+   
+
+    
+   
+    
+    
+   
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+       
+        
+        
+        // Initialize sign-in
+        GIDSignIn.sharedInstance().clientID = "384677993657-r42sn3vppp9hrlmkekga21k8ncqggqm3.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
+        
+        
+        
+        
+        
+        
     }
+    
+  
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -40,7 +77,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+        ->Bool {
+            let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options: options)
+            return handled
+            
+            
+            return GIDSignIn.sharedInstance().handle(url as URL?,
+                sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+            
+    }
 
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+              withError error: Error!) {
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            // ...
+        }
+        
+        
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+                withError error: Error!) {
+            // Perform any operations when the user disconnects from app here.
+            // ...
+    
+        }
+    
+    
 
 }
 
