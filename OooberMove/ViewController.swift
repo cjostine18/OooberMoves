@@ -19,6 +19,14 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
         return button
     }()
     
+    
+    let googleLoginBtn: GIDSignInButton = {
+        
+        let button = GIDSignInButton()
+        //button.readPermissions = ["public_profile", "email"]
+        return button
+    }()
+    
 
     //Mark: Properties
     
@@ -45,6 +53,10 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
         view.addSubview(fbLoginBtn)
         fbLoginBtn.center = view.center
         fbLoginBtn.delegate = self
+        
+        view.addSubview(googleLoginBtn)
+        googleLoginBtn.center = view.center
+       //googleLoginBtn.delegate = self
         
        if let token = FBSDKAccessToken.current(){
             fetchProfile()
@@ -174,11 +186,14 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
     
 
     //Mark: Actions
-
-  /**  @IBAction func didTapSignOut(_ sender: AnyObject) {
+    
+    @IBAction func didTapSignOut(_ sender: UIButton) {
+        
         GIDSignIn.sharedInstance().signOut()
     }
-**/
+    
+    
+
     
 
     //func loginButton(_ loginbutton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!){
