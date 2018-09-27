@@ -1,0 +1,6 @@
+framework module Pods_OooberMoveUITests {
+  umbrella header "Pods-OooberMoveUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
