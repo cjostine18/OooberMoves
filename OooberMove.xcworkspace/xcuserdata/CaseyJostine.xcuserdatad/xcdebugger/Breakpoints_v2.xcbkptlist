@@ -2,4 +2,131 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OooberMove/ViewController.swift"
+            timestampString = "559791799.979951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OooberMove.ViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; OooberMove.ViewController"
+                  moduleName = "OooberMove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/CaseyJostine/Desktop/OoberMoves/OooberMoves/OooberMove/OooberMove/ViewController.swift"
+                  timestampString = "559789921.607115"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OooberMove.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; OooberMove.ViewController"
+                  moduleName = "OooberMove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/CaseyJostine/Desktop/OoberMoves/OooberMoves/OooberMove/OooberMove/ViewController.swift"
+                  timestampString = "559789921.609418"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "45">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OooberMove.ViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;OooberMove.ViewController&gt;"
+                  moduleName = "OooberMove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/CaseyJostine/Desktop/OoberMoves/OooberMoves/OooberMove/OooberMove/ViewController.swift"
+                  timestampString = "559789921.6115561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OooberMove.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;OooberMove.ViewController&gt;"
+                  moduleName = "OooberMove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/CaseyJostine/Desktop/OoberMoves/OooberMoves/OooberMove/OooberMove/ViewController.swift"
+                  timestampString = "559789921.614671"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OooberMove.ViewController.__deallocating_deinit"
+                  moduleName = "OooberMove"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/CaseyJostine/Desktop/OoberMoves/OooberMoves/OooberMove/OooberMove/ViewController.swift"
+                  timestampString = "559789921.6171581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OooberMove/ViewController.swift"
+            timestampString = "559791799.981043"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "sign(_:didSignInFor:withError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OooberMove/ViewController.swift"
+            timestampString = "559791799.9816459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "sign(_:didSignInFor:withError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

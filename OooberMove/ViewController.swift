@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
 
-class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate {
+class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate,GIDSignInDelegate {
     
     let fbLoginBtn: FBSDKLoginButton = {
         
@@ -36,6 +36,11 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
     
     @IBOutlet weak var userLabel: UILabel!
     
+   
+    @IBOutlet weak var navLabel: UILabel!
+    
+    
+    
    // @IBOutlet weak var signInButton: GIDSignInButton!
     
     
@@ -48,6 +53,11 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().delegate = self
+        
+        
+        
+
 
         
         view.addSubview(fbLoginBtn)
@@ -57,6 +67,10 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
         view.addSubview(googleLoginBtn)
         googleLoginBtn.center = view.center
        //googleLoginBtn.delegate = self
+        
+        
+      
+        
         
        if let token = FBSDKAccessToken.current(){
             fetchProfile()
@@ -90,12 +104,22 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
                 
                 self.userNameLabel.text = first_name
                 
+                self.navLabel.text = first_name
+                
                 self.userLabel.text = first_name
                 
                 self.welcomeLabel.text = "Welcome Back"
             
             }
         
+        }
+        
+        
+        
+        func fetchProfileGoogle(){
+            self.navLabel.text = GIDSignIn.sharedInstance().currentUser.profile.name
+            
+            
         }
         
        
@@ -154,10 +178,30 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
     
     
     
-    func signIn(signIn: GIDSignIn!,
+   /** func signIn(signIn: GIDSignIn!,
                 presentViewController viewController: UIViewController!) {
         self.present(viewController, animated: true, completion: nil)
+        print("test with google")
+        
     }
+    **/
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if error != nil {
+            print(error)
+            return
+        }
+       
+        print(user.profile.email)
+    }
+    
+    
+    
+   
+    
+    
+   
     
     
     
@@ -186,14 +230,24 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
     
 
     //Mark: Actions
-    
-    @IBAction func didTapSignOut(_ sender: UIButton) {
-        
+    @IBAction func didSignOut(_ sender: UIBarButtonItem) {
+       // print(GIDSignIn.sharedInstance().currentUser.profile.email)
+       // print(GIDSignIn.sharedInstance().currentUser.profile.name)
         GIDSignIn.sharedInstance().signOut()
+        
+        
+        if FBSDKAccessToken.current() != nil {
+            let logout = FBSDKLoginManager()
+            logout.logOut()
+            
+            self.welcomeLabel.isHidden = true
+            self.userLabel.isHidden = true
+        
+        
+        
     }
     
-    
-
+      
     
 
     //func loginButton(_ loginbutton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!){
@@ -209,7 +263,7 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
     
 
 
-
+    }
     
     
 }

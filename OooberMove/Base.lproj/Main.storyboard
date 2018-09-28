@@ -42,19 +42,32 @@
                                 <rect key="frame" x="137" y="240" width="101" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SB-mn-fD1">
-                                <rect key="frame" x="281" y="68" width="55" height="30"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41Q-dD-Eed">
+                                <rect key="frame" x="0.0" y="24" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="P8Z-3b-B7s">
+                                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="o99-NJ-Ifi">
+                                            <connections>
+                                                <action selector="didSignOut:" destination="BYZ-38-t0r" id="iO3-vH-TMS"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMO-Jn-LMJ">
+                                <rect key="frame" x="146" y="35" width="82" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log Out"/>
-                                <connections>
-                                    <action selector="didTapSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vuh-Ho-hvv"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="navLabel" destination="jMO-Jn-LMJ" id="9WV-Z6-cup"/>
                         <outlet property="userLabel" destination="j62-Rb-0e8" id="9Gz-OM-FQ4"/>
                         <outlet property="userNameLabel" destination="j62-Rb-0e8" id="I9e-ha-vPJ"/>
                         <outlet property="welcomeLabel" destination="h5l-YJ-u3A" id="LNd-ae-8vs"/>
