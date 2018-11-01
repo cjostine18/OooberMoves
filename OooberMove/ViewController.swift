@@ -131,6 +131,9 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("login to the shit")
+        googleLoginBtn.isHidden = true
+        fbLoginBtn.isHidden=true
+        
         
         let parameters = ["fields":"email,first_name, last_name, picture"]
         FBSDKGraphRequest(graphPath: "me", parameters: parameters).start{(connection, result, error)-> Void in
@@ -157,6 +160,9 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
                 self.welcomeLabel.text = "Welcome"
                 
                 self.userLabel.text = first_name
+                
+                
+                
                 
             }
             
@@ -192,8 +198,22 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
             print(error)
             return
         }
-       
+        
+        //hide buttons when google User is authenticated and logged in
+        googleLoginBtn.isHidden = true
+        fbLoginBtn.isHidden=true
+        
+        //console print for testing purposes
         print(user.profile.email)
+        print(user.profile.name)
+        
+        //
+        self.welcomeLabel.isHidden = false
+        self.userLabel.isHidden = false
+        self.welcomeLabel.text = "Welcome"
+        self.userLabel.text = user.profile.name
+        
+        
     }
     
     
@@ -242,12 +262,17 @@ class ViewController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDeleg
             
             self.welcomeLabel.isHidden = true
             self.userLabel.isHidden = true
-        
-        
-        
     }
-    
+        
+        //tie around google AccessToken.current
+        self.welcomeLabel.isHidden = true
+        self.userLabel.isHidden = true
+        
+        googleLoginBtn.isHidden = false
+        fbLoginBtn.isHidden=false
       
+        
+        
     
 
     //func loginButton(_ loginbutton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!){
